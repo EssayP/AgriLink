@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agrilink--Crop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="/static/css/main.css">
+
+</head>
+
+<body>
+  <!-- ******NAVBAR******** -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"> </a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/" class="navfont">首页</a></li>
+                <li><a href="/crop-planning/" class="navfont">作物种植</a></li>
+                <li><a href="/disease-detection/" class="navfont">灾病检测</a></li>
+                <li><a href="/sell/" class="navfont">出售</a></li>
+                <li><a href="/buy/" class="navfont">购买</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ******BANNER******** -->
+  <img class="banner" src="/static/assets/Rectangle 100.png" alt="">
+  <img class="pic" src="/static/assets/b_pic.png" alt="">
+  <img class="logo" src="/static/assets/Group 115.png" alt="">
+  <div class="b_txt">
+    <p>我们将帮您计算出最适合您种植环境的农作物</p>
+  </div>
+
+  <!-- ******SECTION -1******** -->
+
+  <section
+    style="position: absolute; margin-top: 35%; width: 100%; height: 90%; background-color: #d2e6c4; border-radius: 0px 0px 80px 80px;">
+    <div class="container" style="padding-top: 3rem;">
+      <form id="crop-predict" action="{{ url_for('crop_prediction')}}" method="POST">
+        <div class="row">
+          <div class="input-field col l6">
+            <span style="color: #00B859;font-weight: 600;font-size: 1.25rem;">氮</span><br><br>
+            <input type="text" name="nitrogen" id="nitrogen" style="border: 3px solid #00B859;border-radius: 10px">
+          </div>
+          <div class="input-field col l6">
+            <span style="color: #00B859;font-weight: 600;font-size: 1.25rem;">钾</span><br><br>
+            <input type="text" name="potassium" id="potassium" style="border: 3px solid #00B859;border-radius: 10px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col l6">
+            <span style="color: #00B859;font-weight: 600;font-size: 1.25rem;">含磷物质</span><br><br>
+            <input type="text" name="phosphorous" id="phosphorous"
+              style="border: 3px solid #00B859;border-radius: 10px">
+          </div>
+          <div class="input-field col l6">
+            <span style="color: #00B859;font-weight: 600;font-size: 1.25rem;">pH值</span><br><br>
+            <input type="text" name="ph" id="ph" style="border: 3px solid #00B859;border-radius: 10px">
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col l6">
+            <span style="color: #00B859;font-weight: 600;font-size: 1.25rem;">降水量(mm)</span><br><br>
+            <input type="text" name="rainfall" id="rainfall" style="border: 3px solid #00B859;border-radius: 10px">
+          </div>
+          <div class="input-field col l6">
+            <span style="color: #00B859;font-weight: 600;font-size: 1.25rem;">城市</span><br><br>
+            <input type="text" name="city" id="city" style="border: 3px solid #00B859;border-radius: 10px">
+          </div>
+        </div>
+        <button id="predict-btn" type="submit" class="btn btn-large right"
+          style="width: 12rem; font-size:1.1rem">预测</button>
+      </form>
+    </div>
+  </section>
+
+
+
+  <!-- ******Footer******** -->
+<!--  <img class="con_4v2" src="/static/assets/Rectangle 126.png" alt="">-->
+  <img class="f_logo1v2" src="/static/assets/undraw_nature_m5ll.png" alt="">
+  <button class="scroll1v2" id="scrollToTopBtn"><i class="fas fa-arrow-up "></i></button>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/static/js/main.js"></script>
+</body>
+
+</html>
